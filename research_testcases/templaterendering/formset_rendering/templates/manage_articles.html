@@ -1,0 +1,9 @@
+{% autoescape off %}
+{{ tainted_name  }} {# CWEID 80 #}
+{% endautoescape %}
+
+<form method="post">
+    <table>
+        {{ formset }} {# FP CWEID 80 #} {# Since mark_safe is used in python code, thats where we should flag it #}
+    </table>
+</form>

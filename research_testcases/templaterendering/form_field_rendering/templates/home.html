@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+name : {{  name | safe  }} {#  CWEID 80 #}
+form:name:data : {{  form.name.data | safe }} {#  CWEID 80 #}
+Form:email:data : {{  form.email.data  | safe }} {#  CWEID 80 #}
+Form:message:data : {{  form.message.data  | safe }} {# CWEID 80 #}
+
+Form:Name:Value : {{  form.name.value | safe }} {# CWEID 80 #}
+Form:no:value : {{ form.no.data | safe }} {# FP CWEID 80 #}
+
+SafeSeqList : {{ safeseq_lst | safeseq | join:", "}} {# CWEID 80 #}
+
+</body>
+</html>

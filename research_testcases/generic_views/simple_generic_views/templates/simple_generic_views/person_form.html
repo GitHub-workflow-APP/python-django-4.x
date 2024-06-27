@@ -1,0 +1,35 @@
+{% extends './main.html' %}
+
+{% block content %}
+
+{% if request.resolver_match.url_name == 'member-create' %}
+<h3 class="heading">Add a person  </h3>
+{% else %}
+<h3 class="heading">Edit a person</h3>
+{% endif %}
+
+{% if request.resolver_match.url_name == 'member-update' %}
+
+<div class="form_container">
+    <form method="POST" action="">
+        {{form.as_p}}
+        <div class="button_container">
+            <a class="button delete_button" href="{% url 'member-delete' member.id %}">Delete</a>
+            <input class="button save_button" type="submit" value="Save">
+        </div>
+    </form>
+</div>
+
+
+{% else %}
+
+<form method="POST" action="">
+    {{form.as_p}}
+    <div class="button_container">
+        <input class="button save_button" type="submit" value="Save">
+    </div>
+</form>
+
+{% endif %}
+
+{% endblock content %}

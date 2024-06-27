@@ -1,0 +1,15 @@
+{% extends './main.html' %}
+
+{% block content %}
+
+<a class="back_icon" href="{% url 'persons' %}">
+</a>
+
+<form method="POST">
+    <p>Are you sure you want to delete this member? "{{person}}"</p>
+    <div class="button_container">
+        <input class="button delete_button" type="submit" value="Delete"/>
+    </div>
+</form>
+
+{% endblock content %}

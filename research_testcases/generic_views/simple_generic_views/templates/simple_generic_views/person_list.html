@@ -1,0 +1,39 @@
+{% extends './main.html' %}
+
+{% block content %}
+
+<a class="add_icon" href="{% url 'person-create' %}">
+</a>
+
+<h1 class="heading">Team Members</h1>
+<p class="subheading">You have {{persons.count}} team members</p>
+
+<form method="GET">
+    <input class="search_bar" type='text' name='search-area' value="{{search_input}}"/>
+    <input class="button" type='submit' value='Search'/>
+</form>
+
+
+<div class="table_container">
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+	{{ persons | safe }} {# CWEID 80 #}
+        {% for person in persons%}
+        <tr class="list_element">
+            <td>
+                <a href="{% url 'person-update' person.id %}">
+                    <p class="element_title">{{person.first_name | safe}} {{person.last_name}} {# CWEID 80 #}
+                    <p class= "element_subtitle">{{person.email}}</p>
+                </a>
+            </td>
+            {#<td><a href="{% url 'person' person.id %}">View</a></td>#}
+        </tr>
+        {% empty %}
+            <h3>No members in list</h3>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}
